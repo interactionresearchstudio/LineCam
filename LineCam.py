@@ -2,6 +2,15 @@ import cv2
 import time
 import numpy as np
 
+# configuration file
+# no configuration file
+# end of configuration file
+
+# window
+cv2.namedWindow("Output")
+# end of window
+
+# camera
 capture = cv2.VideoCapture(0)
 capture.set(3, 320)
 capture.set(4, 240)
@@ -12,9 +21,14 @@ else:
     rval = False
 
 time.sleep(0.1)
+# end of camera
 
+# main loop
 while rval:
+    # new frame
     rval, frame = capture.read()
+    # end of new frame
+
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     lowThreshold = 50
@@ -28,10 +42,12 @@ while rval:
             for x1,y1,x2,y2 in line:
                 cv2.line(edges,(x1,y1),(x2,y2),(0,255,0),2)
 
-    cv2.imshow("Output", frame)
     cv2.imshow("Edges", edges)
+    
+    # wait for keys
     key = cv2.waitKey(10)
     if key == 27:
         break
+    # end of loop
 
 cv2.destroyWindow("Output")
