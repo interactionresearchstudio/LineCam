@@ -17,7 +17,7 @@ camera = PiCamera()
 camera.resolution = (320,240)
 camera.framerate = 32
 rawCapture = PiRGBArray(camera, size=(320,240))
-time.sleep(config["camera_warmup"])
+time.sleep(2.5)
 
 # buttons
 btn1 = 17
