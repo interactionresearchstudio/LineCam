@@ -51,7 +51,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
             for x1,y1,x2,y2 in line:
                 cv2.line(edges,(x1,y1),(x2,y2),(0,255,0),2)
 
-    cv2.imshow("Edges", edges)
+    cv2.imshow("Output", edges)
     
     # clear buffer
     rawCapture.truncate(0)
